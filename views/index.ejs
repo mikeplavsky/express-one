@@ -3,9 +3,22 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.1.0.js"></script>
+    <script src="/application.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Wow! <%= title %></p>
+
+    <div data-bind="text:name"></div>
+    <input type="text" data-bind="value:name"/>
+
+    <div data-bind="text:name"></div>
+
+    <script>
+      require("app")
+    </script>
+
+
   </body>
 </html>
