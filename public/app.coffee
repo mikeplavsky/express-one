@@ -10,6 +10,6 @@ class Model
    curr = @lastName()
    @lastName( curr.toUpperCase() )
 
-
 ko.applyBindings(new Model())
+
 
