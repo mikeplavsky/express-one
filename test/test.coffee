@@ -19,3 +19,9 @@ describe "Mocha", ->
         2500
 
     it "pending should be visible"
+
+describe "Model", ->
+
+  it "should exist", ->
+    expect.ok new app.Model()
+
