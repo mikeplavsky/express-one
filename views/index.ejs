@@ -7,6 +7,11 @@
   </head>
   <body>
     <h1><%= title %></h1>
+
+    <a href="http://main.ec2l.com/tests">Tests!</a>
+    <a href="http://main.ec2l.com/ember">Ember</a>
+    <a href="http://main.ec2l.com/grid">Grid</a>
+
     <p>Wow! <%= title %></p>
 
     <div data-bind="text:name"></div>
@@ -32,19 +37,7 @@
     <div id="disqus_thread"></div>
 
     <script type="text/javascript">
-      var disqus_shortname = "main-ec2l";
-      (function(){
-       
-          var dsq = document.createElement('script');
-          dsq.type = 'text/javascript';
-          dsq.async = true;
-
-          dsq.src = "http://main-ec2l.disqus.com/embed.js";
-
-          (document.getElementsByTagName('head')[0] || 
-           document.getElementsByTagName('body')[0]).appendChild(dsq);
-
-       })();
+      require("disqus").disqus();
     </script>
 
   </body>
