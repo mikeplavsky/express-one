@@ -28,5 +28,5 @@ app.configure ->
   app.use express.directory("public")
   app.use express.static "#{__dirname}/node_modules"
 
-app.listen 3000
-console.log "Listening 0.0.0.0:3000"
+app.listen 80
+console.log "Listening 0.0.0.0:80"
