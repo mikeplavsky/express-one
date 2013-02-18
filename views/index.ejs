@@ -4,9 +4,13 @@
     <title><%= title %></title>
     <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.1.0.js"></script>
     <script src="/application.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
+
 
     <a href="http://main.ec2l.com/tests">Tests!</a>
     <a href="http://main.ec2l.com/ember">Ember</a>
@@ -35,9 +39,11 @@
     </script>
 
     <div id="disqus_thread"></div>
+    <div id="map_canvas" style="width:500px;height: 300px"></div>
 
     <script type="text/javascript">
       require("disqus").disqus();
+      require("disqus").map();
     </script>
 
   </body>

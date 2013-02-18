@@ -10,3 +10,13 @@ exports.disqus = () ->
 
   (document.getElementsByTagName('head')[0] ||
    document.getElementsByTagName('body')[0]).appendChild(dsq)
+
+exports.map = () ->
+
+   mapOptions =
+      zoom: 8,
+      center: new google.maps.LatLng(43.6481,-79.4042),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    
+   map = new google.maps.Map(document.getElementById( 'map_canvas' ), mapOptions)
+      
