@@ -19,11 +19,13 @@ init = ->
       {firstName: "Ember", lastName: "JS" },
       {firstName: "Ember", lastName: "Coffee" }
     ]
+    counter: 0
 
   App.PeopleRoute = Ember.Route.extend
     
     setupController: (controller)->
       controller.people.push {firstName: "Mike", lastName: "Next"}
+      controller.counter += 1
       controller.set( 'content', 'Wow')
 
   App.initialize()
