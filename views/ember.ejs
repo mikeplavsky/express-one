@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-<script src="https://github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>  
-<script src="https://github.com/downloads/emberjs/ember.js/ember-1.0.0-pre.2.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" charset="utf8">
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://raw.github.com/wycats/handlebars.js/1.0.0-rc.3/dist/handlebars.js"></script>  
+<script src="https://raw.github.com/emberjs/ember.js/release-builds/ember-1.0.0-rc.1.js"></script>
+<script src="js/bootstrap.js"></script>
 
 <script src="application.js"></script>
   
@@ -11,20 +13,12 @@
 <title>JS Bin</title>
 </head>
 <body>
-  
-<h1>People</h1>
 
-<ul>
-{{#each peopleController}}
-  <li>Hello, <b>{{fullName}}</b>!</li>
-{{/each}}
-</ul>
-    
-<div id="disqus_thread"></div>
-
-<script type="text/javascript">
-  require("disqus").disqus();
-</script>
+  <script>
+    var app = require("ember");
+    var Notes = app.init();
+    Notes.initialize();
+  </script>
 
 </body>
 </html>

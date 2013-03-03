@@ -26,6 +26,7 @@ app.configure ->
   app.set 'views', "#{__dirname}/views"
   app.set 'view engine', 'ejs'
   app.use express.directory("public")
+  app.use express.static "#{__dirname}/public"
   app.use express.static "#{__dirname}/node_modules"
 
 app.listen 80
