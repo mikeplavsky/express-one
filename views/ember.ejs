@@ -14,10 +14,42 @@
 </head>
 <body>
 
+  <script id="favorites" type="text/x-handlebars">
+    Favorites
+  </script>  
+
+  <script id="about" type="text/x-handlebars">
+    About!
+  </script>  
+
+  <script id="people" type="text/x-handlebars">
+    {{#each people}}
+      <li>{{firstName}} {{lastName}}</li>
+    {{/each}}
+  </script>  
+
+  <script type="text/x-handlebars">
+
+    <header> 
+      {{#linkTo "index"}}Home{{/linkTo}}
+      {{#linkTo "favorites"}}Favorites{{/linkTo}}
+      {{#linkTo "people"}}People{{/linkTo}}
+      {{#linkTo "about"}}About{{/linkTo}}
+    </header>
+
+    <div>
+      {{outlet}}
+    </div>
+
+    <footer>
+      Footer!
+    </footer>
+
+  </script>
+
   <script>
-    var app = require("ember");
-    var Notes = app.init();
-    Notes.initialize();
+    var ember = require("ember");
+    var App = ember.init();
   </script>
 
 </body>
