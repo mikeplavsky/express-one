@@ -2,6 +2,11 @@ init = ->
 
   App = Ember.Application.create() #( LOG_TRANSITIONS: true)
 
+  App.ClickableView = Ember.View.extend
+    
+    click: (evt) ->
+      alert "Clicked!"
+
   App.Router.map ->
 
     this.route "about", path: "/about"
