@@ -18,6 +18,9 @@ app.get "/grid", (req,res)->
 app.get "/ember", (req,res)->
   res.render "ember", title: 'express'
 
+app.get "/notes", (req,res)->
+  res.render "notes", title: 'express'
+
 app.get "/tests", (req,res)->
   res.render "tests", title: 'tests'
  

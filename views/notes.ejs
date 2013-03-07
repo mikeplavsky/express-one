@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" charset="utf8">
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://raw.github.com/wycats/handlebars.js/1.0.0-rc.3/dist/handlebars.js"></script>  
+<script src="https://raw.github.com/emberjs/ember.js/release-builds/ember-1.0.0-rc.1.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script src="application.js"></script>
+  
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body style="margin:15px;bgcolor:#ffffff">
+
+
+  <script data-template-name="selectedNote" type="text/x-handlebars">
+
+    {{#if controller.content}}
+      <h1>{{name}}</h1>
+      {{view Ember.TextArea valueBinding="value"}}
+    {{/if}}
+
+  </script>  
+  
+  <script data-template-name="notes" type="text/x-handlebars">
+    
+    {{view Notes.TextField target="controller" action="createNewNote" 
+        classNames="input-small search-query mediumTopPadding" 
+        valueBinding="controller.NewNoteName"}}
+
+    <buttoni class="btn" {{action createNewNote}}>New Note</button>
+
+  </script>
+
+  <script data-template-name="selectedNote" type="text/x-handlebars">
+  </script>
+
+  <script data-template-name="application" type="text/x-handlebars">
+    {{outlet}}{{render selectedNote}}
+  </script>
+
+  <script>
+    var Notes = require("ember-apps/notes").Notes;
+    //notes.App.initialize();
+  </script>
+
+</body>
+</html>
+
