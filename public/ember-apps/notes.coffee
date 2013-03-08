@@ -18,8 +18,21 @@ Notes.ApplicationController = Ember.Controller.extend {}
 
 Notes.NotesController = Ember.ArrayController.extend
 
-  content: [],
+  content: []
   selectedNote: null
+
+  newNoteName: null
+
+  createNewNote: ->
+
+    content = this.get 'content'
+    newNoteName = this.get 'newNoteName'
+
+    content.pushObject Ember.Object.create
+      name: newNoteName
+      value: ""
+
+    this.set 'newNoteName', null
 
 Notes.TextField = Ember.TextField.extend Ember.TargetActionSupport,
   

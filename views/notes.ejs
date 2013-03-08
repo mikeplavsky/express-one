@@ -32,7 +32,9 @@
         classNames="input-small search-query mediumTopPadding" 
         valueBinding="controller.NewNoteName"}}
 
-    <buttoni class="btn" {{action createNewNote}}>New Note</button>
+    <button class="btn" {{action createNewNote}}>New Note</button>
+
+    {{view Notes.NoteListView}}
 
   </script>
 
