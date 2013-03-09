@@ -18,7 +18,6 @@
 
 
   <script data-template-name="selectedNote" type="text/x-handlebars">
-
     {{#if controller.content}}
       <h1>{{name}}</h1>
       {{view Ember.TextArea valueBinding="value"}}
@@ -26,19 +25,26 @@
 
   </script>  
   
+  <script data-template-name="noteListItem" type="text/x-handlebars">
+    {{name}}
+  </script>
+  
+  <script data-template-name="noteList" type="text/x-handlebars">
+    {{#each controller}}
+      {{view Notes.NoteListItemView contentBinding="this"}}
+    {{/each}}
+  </script>
+
   <script data-template-name="notes" type="text/x-handlebars">
     
     {{view Notes.TextField target="controller" action="createNewNote" 
         classNames="input-small search-query mediumTopPadding" 
-        valueBinding="controller.NewNoteName"}}
+        valueBinding="controller.newNoteName"}}
 
     <button class="btn" {{action createNewNote}}>New Note</button>
 
     {{view Notes.NoteListView}}
 
-  </script>
-
-  <script data-template-name="selectedNote" type="text/x-handlebars">
   </script>
 
   <script data-template-name="application" type="text/x-handlebars">

@@ -45,13 +45,31 @@ Notes.SelectedNoteController = Ember.ObjectController.extend
 
 Notes.NotesView = Ember.View.extend
 
-  elementId: 'notes',
+  elementId: 'notes'
   classNames: ['azureBlueBackground','azureBlueBorderThin']
+
+Notes.NoteListView = Ember.View.extend
+
+  elementId: "noteList"
+  templateName: "noteList"
+
+Notes.NoteListItemView = Ember.View.extend
+
+  templateName: "noteListItem"
+  classNames: ['pointer', 'noteListItem']
+
+  classNameBindings: 'isSelected'
+  isSelected: (->
+    this.get('controller.selectedNote.name') ==
+    this.get('content.name')).property 'controller.selectedNote.name'
+
+  click: ->
+    this.get( 'controller' ).set 'selectedNote', this.get( 'content' )
 
 Notes.SelectedNoteView = Ember.View.extend
 
   elementId: 'selectedNote',
-  templateName: 'selecteddNoteTemplate'
+  templateName: 'selectedNoteTemplate'
 
 exports.Notes = Notes
 
