@@ -34,6 +34,29 @@ Notes.NotesController = Ember.ArrayController.extend
 
     this.set 'newNoteName', null
 
+  doDeleteNote: ->
+
+    $( "#confirmDeleteConfirmDialog" ).modal show:true
+
+  deleteSelectedNote: ->
+
+    selectedNote = this.get "selectedNote"
+
+    if selectedNote
+
+      this.get( 'content' ).removeObject selectedNote
+      this.set 'selectedNote', null
+
+  doConfirmDelete: ->
+
+    deleteSelectedNote()
+    $( "#confirmDeleteConfirmDialog" ).modal 'hide'
+
+  doCancelDialog: ->
+
+    $( "#confirmDeleteConfirmDialog" ).modal 'hide'
+
+
 Notes.TextField = Ember.TextField.extend Ember.TargetActionSupport,
   
   insertNewline: -> this.triggerAction()
@@ -71,6 +94,14 @@ Notes.SelectedNoteView = Ember.View.extend
 
   elementId: 'selectedNote',
   templateName: 'selectedNoteTemplate'
+
+Notes.ConfirmDialogView = Ember.View.extend
+
+  templateName: 'confirmDialog'
+  classNames: ['modal', 'hide']
+
+  cancelButtonLabal: 'Cancel'
+  okAction: null
 
 exports.Notes = Notes
 

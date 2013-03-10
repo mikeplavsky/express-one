@@ -28,6 +28,11 @@
   
   <script data-template-name="noteListItem" type="text/x-handlebars">
     {{name}}
+    {{#if view.isSelected}}
+      <button {{action doDeleteNote}} class="btn btn-mini floatRight btn-danger smallMarginBottom">
+        x
+      </button>
+    {{/if}}
   </script>
   
   <script data-template-name="noteList" type="text/x-handlebars">
@@ -51,6 +56,32 @@
 
     {{view Notes.NoteListView}}
 
+    {{view Notes.ConfirmDialogView elementId="confirmDeleteConfirmDialog" 
+        okAction="doConfirmDelete" cancelAction="doCancelDelete" target="controller"
+        header="Delete selected note?"
+        message="Are you sure you want to delete the selected Note?"}}
+
+  </script>
+
+  <script data-template-name="confirmDialog" type="text/x-handlebars">
+    <div class="modal-header leftAlign">
+
+      <button type="button" class="close" data-dismiss="modal" class="floatRight">
+        x
+      </button>
+
+      <h1 class="leftAlign">{{view.header}}</h1>  
+
+      <div class="modal-body">
+        {{view.message}}
+      </div>
+
+      <div class="modal-footer">
+        {{#if view.okAction}}
+        {{/if}}
+      </div>
+
+    </div>
   </script>
 
   <script data-template-name="application" type="text/x-handlebars">
