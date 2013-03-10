@@ -37,6 +37,7 @@ Notes.NotesController = Ember.ArrayController.extend
 Notes.TextField = Ember.TextField.extend Ember.TargetActionSupport,
   
   insertNewline: -> this.triggerAction()
+  classNames: ['notes-edit']
 
 Notes.SelectedNoteController = Ember.ObjectController.extend
 

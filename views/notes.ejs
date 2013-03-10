@@ -3,6 +3,7 @@
 <head>
 
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" charset="utf8">
+<link rel="stylesheet" href="css/master.css" type="text/css" charset="utf8">
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://raw.github.com/wycats/handlebars.js/1.0.0-rc.3/dist/handlebars.js"></script>  
@@ -37,11 +38,16 @@
 
   <script data-template-name="notes" type="text/x-handlebars">
     
-    {{view Notes.TextField target="controller" action="createNewNote" 
-        classNames="input-small search-query mediumTopPadding" 
-        valueBinding="controller.newNoteName"}}
+    <div id="notes-edit">
 
-    <button class="btn" {{action createNewNote}}>New Note</button>
+      {{view Notes.TextField target="controller" action="createNewNote" 
+          classNames="input-small search-query mediumTopPadding" 
+          valueBinding="controller.newNoteName"}}
+
+
+      <button id="new-note-btn" class="btn" {{action createNewNote}}>New Note</button>
+
+    </div>
 
     {{view Notes.NoteListView}}
 

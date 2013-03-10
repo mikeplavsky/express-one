@@ -1,5 +1,6 @@
 express = require "express"
 stitch = require "stitch"
+stylus = require "stylus"
 
 pack = stitch.createPackage paths: [__dirname + "/public"]
 tests = stitch.createPackage paths: [__dirname + "/test"]
@@ -29,6 +30,11 @@ app.configure ->
   app.set 'views', "#{__dirname}/views"
   app.set 'view engine', 'ejs'
   app.use express.directory("public")
+
+  app.use stylus.middleware
+    src: "#{__dirname}/public"
+    dst: "#{__dirname}/public"
+  
   app.use express.static "#{__dirname}/public"
   app.use express.static "#{__dirname}/node_modules"
 
