@@ -49,7 +49,7 @@ Notes.NotesController = Ember.ArrayController.extend
 
   doConfirmDelete: ->
 
-    deleteSelectedNote()
+    @deleteSelectedNote()
     $( "#confirmDeleteConfirmDialog" ).modal 'hide'
 
   doCancelDialog: ->
@@ -100,8 +100,28 @@ Notes.ConfirmDialogView = Ember.View.extend
   templateName: 'confirmDialog'
   classNames: ['modal', 'hide']
 
-  cancelButtonLabal: 'Cancel'
-  okAction: null
+  cancelButtonLabel: "Cancel"
+  okButtonLabel: "OK"
+
+  okAction: ->
+    console.log "OK"
+
+  cancelAction: null
+
+Notes.BootstrapButton = Ember.View.extend Ember.TargetActionSupport,
+
+  tagName: 'button'
+  classNames: ['button']
+  disabled: false
+
+  click: ->
+    if not this.get 'disabled'
+      this.triggerAction()
+
+  templateName:'bootstrapButton'
+
+  okAction: ->
+    console.log "Yep"
 
 exports.Notes = Notes
 
