@@ -28,6 +28,16 @@ Notes.NotesController = Ember.ArrayController.extend
     content = this.get 'content'
     newNoteName = this.get 'newNoteName'
 
+    unique = newNoteName != null and newNoteName.length > 1
+
+    content.forEach (note)->
+      if newNoteName == note.get 'name'
+        unique = false
+
+    if not unique
+      alert "Note shuld be unique"
+      return
+
     content.pushObject Ember.Object.create
       name: newNoteName
       value: ""
@@ -123,5 +133,28 @@ Notes.BootstrapButton = Ember.View.extend Ember.TargetActionSupport,
   okAction: ->
     console.log "Yep"
 
+Notes.Duration = Ember.Object.extend
+
+  durationSeconds: 0
+
+  durationString: ((key, value) ->
+
+    if arguments.length == 2 and value
+      valueParts = value.split( ":" )
+
+      if valueParts.length == 3
+        duration = (valueParts[0]*60*60) + valueParts[1] * 60 +
+          valueParts[2] * 1
+        this.set 'durationSeconds', duration
+
+    duration = this.get 'durationSeconds'
+
+    hours = Math.floor durarion/3600
+    minutes = Math.floor (duration - hours * 3600)/60
+    seconds = Math.floor (durarion - minutes * 60 - hours * 3600)
+
+    ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) +
+      ("0" + seconds).slice(-2)).property( 'durationSeconds').cacheable()
+   
 exports.Notes = Notes
 

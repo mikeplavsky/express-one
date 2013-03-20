@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="css/master.css" type="text/css" charset="utf8">
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="https://raw.github.com/wycats/handlebars.js/1.0.0-rc.3/dist/handlebars.js"></script>  
-<script src="https://raw.github.com/emberjs/ember.js/release-builds/ember-1.0.0-rc.1.js"></script>
+<script src="js/handlebars.js"></script>  
+<script src="js/ember-1.0.0-rc.1.js"></script>
 <script src="js/bootstrap.js"></script>
 
 <script src="application.js"></script>
@@ -49,7 +49,6 @@
           classNames="input-small search-query mediumTopPadding" 
           valueBinding="controller.newNoteName"}}
 
-
       <button id="new-note-btn" class="btn" {{action createNewNote}}>New Note</button>
 
     </div>
@@ -64,9 +63,9 @@
   </script>
 
   <script data-template-name="bootstrapButton" type="text/x-handlebars">
-    
+
     {{#if view.iconName}}
-      <i>{{bindAttr class="view.iconName"}}</i>
+      <i {{bindAttr class="view.iconName"}}></i>
     {{/if}}
 
     {{view.content}}
@@ -74,31 +73,31 @@
   </script>
 
   <script data-template-name="confirmDialog" type="text/x-handlebars">
-    <div class="modal-header leftAlign">
+    <div class="modal-header centerAlign">
 
       <button type="button" class="close" data-dismiss="modal" class="floatRight">
         x
       </button>
 
-      <h1 class="leftAlign">{{view.header}}</h1>  
+      <h1 class="centerAlign">{{view.header}}</h1>  
 
-      <div class="modal-body">
-        {{view.message}}
-      </div>
+    </div>
 
-      <div class="modal-footer">
+    <div class="modal-body">
+      {{view.message}}
+    </div>
 
-        {{#if view.cancelAction}}
-          {{view Notes.BootstrapButton contentBinding="view.cancelButtonLabel"
-              actionBinding="view.cancelAction" targetBinding="view.target"}}
-        {{/if}}
+    <div class="modal-footer">
 
-        {{#if view.okAction}}
-          {{view Notes.BootstrapButton contentBinding="view.okButtonLabel"
-              actionBinding="view.okAction" targetBinding="view.target"}}
-        {{/if}}
+      {{#if view.cancelAction}}
+        {{view Notes.BootstrapButton contentBinding="view.cancelButtonLabel"
+            actionBinding="view.cancelAction" targetBinding="view.target"}}
+      {{/if}}
 
-      </div>
+      {{#if view.okAction}}
+        {{view Notes.BootstrapButton contentBinding="view.okButtonLabel"
+            actionBinding="view.okAction" targetBinding="view.target"}}
+      {{/if}}
 
     </div>
   </script>
