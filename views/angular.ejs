@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.3/angular.js"></script>
+
+<script src="application.js"></script>
+  
+<script>
+  var app = require("angular");
+  app.init();
+</script>
+
+</head>
+
+<body style="margin:15px">
+
+  <div ng-app='timeExampleModule'>
+
+    <div ng-controller="ClockCtrl">
+      Current Time is: {{ time.now }}
+    </div>
+
+    <input ng-model="name">
+    <p>Hello {{name}}</p>
+
+    <div ng-init="list = ['Chrome', 'Safari', 'Firefox', 'IE']">
+      Number formatting: {{ 123456789 | number }}<br>
+      Array filtering: <input ng-model="predicate">
+      {{ list | filter:predicate}}
+    </div>
+
+    <div ng-controller="GreetCtrl">
+      Hello, {{name}}!
+    </div>
+
+    <div ng-controller="ListCtrl">
+      <button ng-click="new_name()">New</button>
+      <button ng-click="clear()">Clear</button>
+      <ol>
+        <li ng-repeat="name in names">{{name}}</li>
+      </ol>
+    </div>
+
+  </div>
+
+</body>
+</html>
+

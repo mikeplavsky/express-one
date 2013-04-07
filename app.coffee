@@ -2,7 +2,7 @@ express = require "express"
 stitch = require "stitch"
 stylus = require "stylus"
 
-pack = stitch.createPackage paths: [__dirname + "/public"]
+pack = stitch.createPackage paths: [__dirname + "/public/app"]
 tests = stitch.createPackage paths: [__dirname + "/test"]
 
 app = express()
@@ -18,6 +18,9 @@ app.get "/grid", (req,res)->
 
 app.get "/ember", (req,res)->
   res.render "ember", title: 'express'
+
+app.get "/angular", (req,res)->
+  res.render "angular", title: 'express'
 
 app.get "/notes", (req,res)->
   res.render "notes", title: 'express'
